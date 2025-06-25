@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+
+.body {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari and Edge */
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+    @apply
+    h-screen w-screen bg-gray-900 text-gray-300
+}
+
+.headers {
+    @apply
+    hover:text-blue-300 duration-200 font-semibold
+}
+
+.btn {
+    @apply
+    bg-blue-300 text-gray-800 uppercase px-4 py-2 
+    font-semibold rounded cursor-pointer ease-linear
+    hover:bg-blue-400 duration-150 active:bg-blue-300
+}
