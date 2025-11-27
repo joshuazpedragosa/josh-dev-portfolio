@@ -33,7 +33,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="w-full">
-                    <Link to='' className="headers">
+                    <Link to={path.SERVICES} className="headers">
                         Services
                     </Link>
                 </div>

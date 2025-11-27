@@ -3,7 +3,7 @@ import myImg from "./../../assets/IMG_8624.png";
 import { useEffect, useRef, useState } from "react";
 import GitHubSvg from './../../assets/svg/github-svgrepo-com.svg';
 import FBSvg from './../../assets/svg/facebook-svgrepo-com.svg';
-import IGSvg from './../../assets/svg/instagram-svgrepo-com (1).svg';
+import Li from './../../assets/svg/linkedin-linked-in-svgrepo-com.svg';
 import { useNavigate } from "react-router-dom";
 import path from "../../utils/path.constant";
 
@@ -58,6 +58,11 @@ const Home = () => {
                     <div className={`duration-600 ease-linear ${translateText ? 'translate-y-0' : 'translate-y-full text-gray-900'}`}>
                         <h1 className="text-2xl uppercase">full stack web developer</h1>
                     </div>
+                    <div className={`duration-700 ease-linear ${translateText ? 'translate-y-0' : 'translate-y-full text-gray-900'}`}>
+                        <p className="max-w-96 text-xl">
+                            With 2 years of solid experience in both frontend and backend development, I turn ideas into polished, scalable products.
+                        </p>
+                    </div>
                     <div className={`my-6 ease-linear duration-800 ${translateText ? 'translate-y-0' : 'translate-y-full text-gray-900'}`}>
                         <button type="button" className={`ease-linear duration-800 ${translateText ? 'translate-y-0 btn' : 'translate-y-full text-gray-900'}`}>
                             See my Resume
@@ -76,7 +81,7 @@ const Home = () => {
                         </div>
                         <div>
                             <button className="cursor-pointer">
-                                <img src={IGSvg} className={`w-8 ease-linear duration-1000 ${translateText ? '' : 'hidden'}`} alt="" />
+                                <img src={Li} className={`w-8 ease-linear duration-1000 ${translateText ? '' : 'hidden'}`} alt="" />
                             </button>
                         </div>
                     </div>

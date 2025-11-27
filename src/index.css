@@ -27,3 +27,9 @@
     font-semibold rounded cursor-pointer ease-linear
     hover:bg-blue-400 duration-150 active:bg-blue-300
 }
+
+.services-label {
+  @apply
+  bg-blue-300 rounded p-2 uppercase font-bold text-gray-800
+  hover:translate-x-1.5 duration-300 ease-in-out cursor-pointer
+}
