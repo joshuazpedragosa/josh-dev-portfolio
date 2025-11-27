@@ -14,14 +14,14 @@ const Services = () => {
     },[]);
 
     return(
-        <div className="h-full overflow-hidden">
+        <div className="h-full overflow-x-hidden min-sm:overflow-y-hidden">
              <Header />
              <div className="flex flex-col gap-4 justify-center items-center h-full w-full">
-                <div className={`text-center duration-600 ease-linear ${translateText ? 'translate-y-0' : '-translate-y-14'}`}>
-                    <h2 className={`text-2xl uppercase font-semibold ${translateText ? '' : 'text-gray-900'}`}>Services</h2>
+                <div className={`text-center max-sm:hidden duration-600 ease-linear ${translateText ? 'translate-y-0 max-sm:translate-y-16' : '-translate-y-14'}`}>
+                    <h2 className={`text-2xl max-sm:text-lg uppercase font-semibold ${translateText ? '' : 'text-gray-900'}`}>Services</h2>
                 </div>
-                <div className={`flex justify-center items-center m-4 gap-12 duration-600 ease-linear ${translateText ? 'translate-y-0' : 'translate-y-14'}`}>
-                    <div className={`bg-gray-800 duration-100 ease-linear p-8 rounded ${translateText ? '' : 'hidden'}`}>
+                <div className={`flex max-sm:flex-col justify-center max-sm:pb-12 items-center m-4 gap-12 max-sm:gap-4 duration-600 ease-linear ${translateText ? 'translate-y-0 max-sm:translate-y-68' : 'translate-y-14'}`}>
+                    <div className={`bg-gray-800 duration-100 ease-linear p-8 max-sm:p-4 rounded ${translateText ? '' : 'hidden'}`}>
                         <div className="flex items-center gap-2">
                             <img src={codeIcon} className="w-8 rounded-md bg-white p-1" alt="" />
                             <h2>
@@ -47,7 +47,7 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className={`bg-gray-800 duration-700 ease-linear p-8 rounded ${translateText ? '' : 'hidden'}`}>
+                    <div className={`bg-gray-800 duration-700 ease-linear p-8 max-sm:p-7 rounded ${translateText ? '' : 'hidden'}`}>
                         <div className="flex items-center gap-2">
                             <img src={fileIcon} className="w-8 rounded-md bg-white p-1" alt="" />
                             <h2>
@@ -73,7 +73,7 @@ const Services = () => {
                         </div>
                     </div>
 
-                    <div className={`bg-gray-800 duration-700 ease-linear p-8 rounded ${translateText ? '' : 'hidden'}`}>
+                    <div className={`bg-gray-800 duration-700 ease-linear p-8 max-sm:p-4 rounded ${translateText ? '' : 'hidden'}`}>
                         <div className="flex items-center gap-2">
                             <img src={databaseIcon} className="w-8 rounded-md bg-white p-1" alt="" />
                             <h2>
