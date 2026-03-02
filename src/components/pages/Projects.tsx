@@ -24,14 +24,14 @@ const Projects = () => {
                     </div>
                     <div className="flex flex-col gap-2 mx-4">
                         <h2 className="text-sm md:text-xl font-semibold">DCY Malolos (Centralized database system)</h2>
-                        <h3 className="text-xs md:text:lg font-semibold">Tech stack used:</h3>
+                        <h3 className="text-xs md:text-lg font-semibold">Tech stack used:</h3>
                         <ul className="text-xs md:text-md px-4">
                             <li>• Laravel + inertia (Backend)</li>
                             <li>• React JS (Front End)</li>
                             <li>• MySql Database (Database)</li>
                             <li>• CI/CD Pipeline (Automated build, testing, and deployment)</li>
                         </ul>
-                        <div className="flex items-center gap-2 text-xs md:text-md">
+                        <div className="flex items-center gap-2 text-xs md:text-lg">
                             <p>Link:</p>
                             <a href="https://dcymalolos.com/" target="_blank" rel="noopener noreferrer" className="text-blue-500">dcymalolos.com</a> 
                         </div>
