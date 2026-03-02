@@ -17,8 +17,8 @@ const Projects = () => {
             <div className={`text-center duration-600 ease-linear py-6 ${translateText ? 'translate-y-0' : '-translate-y-14'}`}>
                 <h2 className={`text-2xl uppercase font-semibold ${translateText ? '' : 'text-gray-900'}`}>Projects</h2>
             </div>
-            <div className="flex flex-col gap-4 items-center h-full md:w-[78rem] my-4 px-8">
-               <div className="bg-black/45 p-4 rounded w-full flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col gap-4 items-center h-full md:w-full my-4 px-8">
+               <div className="bg-black/45 p-4 rounded flex flex-col md:flex-row gap-8">
                     <div>
                         <img src={dcyImg} alt="dcy" className="w-96"  />
                     </div>
