@@ -16,9 +16,9 @@ const Services = () => {
     return(
         <div className="h-full overflow-x-hidden min-sm:overflow-y-hidden">
              <Header />
-             <div className="mt-32 mb-4 min-sm:mt-0 min-sm:mb-0 flex flex-col gap-4 justify-center items-center h-full w-full z-0">
-                <div className={`text-center max-sm:hidden duration-600 ease-linear ${translateText ? 'translate-y-0 max-sm:translate-y-16' : '-translate-y-14'}`}>
-                    <h2 className={`text-2xl max-sm:text-lg uppercase font-semibold ${translateText ? '' : 'text-gray-900'}`}>Services</h2>
+             <div className="mb-4 mt-4 min-sm:mt-0 min-sm:mb-0 flex flex-col md:gap-4 justify-center items-center h-full w-full">
+                <div className={`text-center duration-600 ease-linear w-full ${translateText ? 'translate-y-0' : '-translate-y-14'}`}>
+                    <h2 className={`text-sm md:text-lg uppercase font-semibold ${translateText ? '' : 'text-gray-900'}`}>Services</h2>
                 </div>
                 <div className={`flex max-sm:flex-col justify-center max-sm:pb-12 items-center m-4 gap-12 max-sm:gap-4 duration-600 ease-linear ${translateText ? 'translate-y-0 max-sm:translate-y-68' : 'translate-y-14'}`}>
                     <div className={`bg-black/30 duration-100 ease-linear p-8 max-sm:p-4 rounded ${translateText ? '' : 'hidden'}`}>
