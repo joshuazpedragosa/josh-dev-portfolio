@@ -38,7 +38,7 @@ const Header = () => {
     },[size]);
 
     return (
-        <div className="relative w-full">
+        <div className="relative w-full z-50">
             <div className="w-full bg-gray-800 gap-8 max-sm:gap-2 p-2 px-6 flex h-12 shadow items-center">
                 <div className={`min-sm:hidden duration-300 ease-linear ${showHeader ? 'translate-y-0' : '-translate-y-9'}`}>
                     <button type="button" onClick={()=>setShowDropDown(showDropDown ? false : true)}>

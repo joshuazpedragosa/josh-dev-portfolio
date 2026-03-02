@@ -21,7 +21,7 @@ const About = () => {
     return (
         <div className="h-full overflow-x-hidden min-sm:overflow-y-hidden">
             <Header />
-            <div className="flex max-sm:flex-wrap-reverse overflow-y-auto w-full h-full justify-center items-center gap-2">
+            <div className="mt-8 mb-4 md:mt-0 md:mb-0 flex max-sm:flex-wrap-reverse w-full h-full justify-center items-center gap-2">
                 <div className="flex flex-col gap-8 w-full justify-end max-sm:justify-center max-sm:items-center items-start min-sm:ms-44 max-sm:px-6">
                     <div className={`duration-700 ease-linear ${translateText ? 'translate-y-0' : 'translate-y-full text-gray-900'}`}>
                         <h1>
