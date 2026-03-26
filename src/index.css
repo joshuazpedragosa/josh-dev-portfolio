@@ -30,7 +30,5 @@
 
 .services-label {
   @apply
-  bg-blue-300 rounded p-2 uppercase font-bold text-gray-800
-  hover:translate-x-1.5 duration-300 ease-in-out cursor-pointer
-  max-sm:text-sm
+  text-white flex gap-2
 }

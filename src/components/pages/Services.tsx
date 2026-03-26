@@ -2,6 +2,7 @@ import Header from "./Header";
 import codeIcon from "./../../assets/svg/code-square-svgrepo-com.svg";
 import fileIcon from "./../../assets/svg/file-link-svgrepo-com.svg";
 import databaseIcon from "./../../assets/svg/database-svgrepo-com.svg";
+import checkIcon from "./../../assets/svg/check-box-svgrepo-com.svg";
 import { useEffect, useState } from "react";
 
 const Services = () => {
@@ -30,18 +31,23 @@ const Services = () => {
                         </div>
                         <div className="flex flex-col gap-8 my-4">
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Front-End Development (React, TypeScript)
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Back-End Development (Node.js, Express, laravel)
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 API Integration & Development
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Responsive Website Design
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 AI Integration
                             </div>
                         </div>
@@ -56,18 +62,23 @@ const Services = () => {
                         </div>
                         <div className="flex flex-col gap-8 my-4">
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 PDF Generation (Reports, Letters, etc.)
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Word DOCX Automation
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 CSV & Excel Creation / Data Structuring
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 PDF-to-Image Conversion
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Google Sheets API
                             </div>
                         </div>
@@ -82,18 +93,23 @@ const Services = () => {
                         </div>
                         <div className="flex flex-col gap-8 my-4">
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 MySQL Database Design
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 REST API Development
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 CRUD Systems
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 Server Deployment & Ubuntu VPS Setup
                             </div>
                             <div className="services-label">
+                                <img src={checkIcon} className="w-6" />
                                 SSL-secured server and database configuration
                             </div>
                         </div>

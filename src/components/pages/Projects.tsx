@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
-import dcyImg from "./../../../public/projects/Screenshot 2026-03-02 154055.png";
+import dcyImg from "./../../../public/projects/Screenshot 2026-03-26 110703.png";
 
 const Projects = () => {
     const [translateText, setTranslateText] = useState<boolean>(false);
@@ -24,7 +24,7 @@ const Projects = () => {
                                 <img src={dcyImg} alt="dcy" className="w-96"  />
                             </div>
                             <div className="flex flex-col gap-2 mx-4">
-                                <h2 className="text-sm md:text-xl font-semibold">DCY Malolos (Centralized database system)</h2>
+                                <h2 className="text-sm md:text-xl font-semibold">DCY Malolos (DCY Youth Connect - Centralized database system)</h2>
                                 <h3 className="text-xs md:text-lg font-semibold">Tech stack used:</h3>
                                 <ul className="text-xs md:text-md px-4">
                                     <li>• Laravel + inertia (Backend)</li>
