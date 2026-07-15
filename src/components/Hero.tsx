@@ -4,18 +4,12 @@ import {
   FiDownload,
   FiFacebook,
   FiGithub,
-  FiLinkedin
+  FiLinkedin,
 } from "react-icons/fi";
 
 import myImg from "./../assets/jzp.png";
 
-const techStack = [
-  "React",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "MySQL",
-];
+const techStack = ["React", "TypeScript", "Node.js", "Express", "MySQL"];
 
 export default function Hero() {
   return (
@@ -31,52 +25,22 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Badge */}
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-            }}
-            className="
-              inline-flex
-              items-center
-              gap-2
-              px-4
-              py-2
-              rounded-full
-              bg-cyan-500/10
-              border
-              border-cyan-500/20
-              text-cyan-400
-              mb-8
-            "
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400" />
-            Available for opportunities
-          </motion.div>
-
-          <p className="text-slate-400 text-lg">
-            Hello, I'm
-          </p>
+          <p className="text-slate-400 text-lg">Hello, I'm</p>
 
           <h1 className="mt-3 text-6xl md:text-7xl lg:text-8xl font-black leading-none">
             Joshua
           </h1>
 
           <h2 className="mt-5 text-3xl md:text-4xl font-bold">
-            <span className="text-slate-300">
-              Full Stack
-            </span>{" "}
+            <span className="text-slate-300">Full Stack</span>{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Developer
             </span>
           </h2>
 
           <p className="mt-8 text-slate-400 text-lg leading-8 max-w-2xl">
-            I build modern, scalable web applications
-            with exceptional user experiences using
-            React, TypeScript, Node.js, and cloud
+            I build modern, scalable web applications with exceptional user
+            experiences using React, TypeScript, Node.js, and cloud
             technologies.
           </p>
 
@@ -129,7 +93,7 @@ export default function Hero() {
               onClick={() =>
                 window.open(
                   "https://drive.google.com/file/d/1BsQW5XvxEnNWdL8lVViji1feVvi1dsg_/view?usp=sharing",
-                  "_blank"
+                  "_blank",
                 )
               }
               className="
@@ -281,9 +245,7 @@ export default function Hero() {
                 border-slate-700
               "
             >
-              <p className="text-sm text-slate-400">
-                Building modern experiences 🚀
-              </p>
+              <p className="text-sm text-slate-400">Software Engineer</p>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -306,8 +268,8 @@ export default function Hero() {
           hidden md:block
         "
       >
-        <div className="w-7 h-12 rounded-full border border-slate-600 flex justify-center">
-          <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2" />
+        <div className="flex justify-center">
+          <div className="w-5 h-5 border-r-[3px] border-b-[3px] border-cyan-400 rotate-45 animate-bounce" />
         </div>
       </motion.div>
     </section>
