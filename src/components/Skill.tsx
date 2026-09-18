@@ -143,39 +143,84 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-32 px-6 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px]" />
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-[#24150d] px-6 py-32 text-[#f6d78b]"
+    >
+      <div
+        className="
+    pointer-events-none
+    absolute
+    left-0
+    top-1/2
+    h-[500px]
+    w-[500px]
+    -translate-y-1/2
+    rounded-full
+    bg-[#a66a32]/10
+    blur-[140px]
+  "
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Heading */}
+      <div
+        className="
+    pointer-events-none
+    absolute
+    right-0
+    top-20
+    h-[300px]
+    w-[300px]
+    rounded-full
+    bg-[#6b4728]/10
+    blur-[100px]
+  "
+      />
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `
+        linear-gradient(#d49a55 1px, transparent 1px),
+        linear-gradient(90deg, #d49a55 1px, transparent 1px)
+      `,
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
           whileInView={{
             opacity: 1,
             y: 0,
           }}
-          viewport={{ once: true }}
+          viewport={{
+            once: true,
+          }}
           className="text-center"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium">
+
+          <h2
+            className="
+        font-mono
+        text-4xl
+        font-black
+        uppercase
+        leading-tight
+        tracking-wide
+        text-[#ffe8ad]
+        drop-shadow-[4px_4px_0_#3b2415]
+        md:text-6xl
+      "
+          >
             Skills & Technologies
-          </span>
-
-          <h2 className="mt-6 text-4xl md:text-6xl font-bold">
-            Building modern applications with
-            <span className="text-cyan-400"> powerful tools</span>
           </h2>
-
-          <p className="mt-6 text-slate-400 max-w-2xl mx-auto leading-8">
-            I enjoy working across the full stack, from designing responsive
-            interfaces to building scalable backend systems and deploying
-            applications to the cloud.
-          </p>
         </motion.div>
 
-        {/* Categories */}
-        <div className="mt-20 grid md:grid-cols-2 gap-8">
+        <div className="mt-20 grid gap-8 md:grid-cols-2">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -187,66 +232,185 @@ export default function Skills() {
                 opacity: 1,
                 y: 0,
               }}
-              viewport={{ once: true }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 duration: 0.6,
                 delay: categoryIndex * 0.15,
               }}
               whileHover={{
-                y: -8,
+                y: -6,
               }}
               className="
-                  rounded-[28px]
-                  border
-                  border-slate-800
-                  bg-slate-900/60
-                  backdrop-blur-xl
-                  p-8
-                "
+            relative
+            border-4
+            border-[#6b4728]
+            bg-[#2e1c13]
+            p-2
+            shadow-[8px_8px_0_#160c07]
+          "
             >
-              {/* Card Header */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 rounded-2xl bg-cyan-500/10 text-cyan-400">
-                  {category.icon}
-                </div>
 
-                <h3 className="text-2xl font-bold">{category.title}</h3>
-              </div>
+              <span
+                className="
+            absolute
+            left-0
+            top-0
+            h-2
+            w-16
+            bg-[#d49a55]"
+              />
 
-              {/* Skills */}
-              <div className="grid grid-cols-2 gap-4">
-                {category.skills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    className="
-                          group
-                          flex
-                          flex-col
-                          items-center
-                          justify-center
-                          gap-3
-                          rounded-2xl
-                          border
-                          border-slate-800
-                          bg-slate-950/50
-                          p-6
-                          transition-all
-                          duration-300
-                          hover:border-cyan-400/50
-                        "
-                  >
-                    <div className="text-slate-300 group-hover:text-cyan-400 transition-colors">
-                      {skill.icon}
+              <span
+                className="
+            absolute
+            right-0
+            bottom-0
+            h-2
+            w-16
+            bg-[#d49a55]
+          "
+              />
+
+              <div
+                className="
+            border-2
+            border-[#4f321f]
+            bg-[#24150d]
+            p-6
+            md:p-8
+          "
+              >
+
+                <div
+                  className="
+              mb-8
+              flex
+              items-center
+              justify-between
+              border-b-2
+              border-[#4f321f]
+              pb-6
+            "
+                >
+                  <div className="flex items-center gap-4">
+
+                    <div
+                      className="
+                  flex
+                  h-14
+                  w-14
+                  items-center
+                  justify-center
+                  border-2
+                  border-[#8b5e34]
+                  bg-[#332016]
+                  text-[#d49a55]
+                  shadow-[3px_3px_0_#1c1009]
+                "
+                    >
+                      {category.icon}
                     </div>
 
-                    <span className="text-slate-300 font-medium text-center">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
+                    <div>
+                      <h3
+                        className="
+                    mt-1
+                    font-mono
+                    text-xl
+                    font-black
+                    uppercase
+                    tracking-wider
+                    text-[#f6d78b]
+                    md:text-2xl
+                  "
+                      >
+                        {category.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div
+                    className="
+                      border-2
+                      border-[#5c3b24]
+                      bg-[#332016]
+                      px-3
+                      py-2
+                      font-mono
+                      text-[9px]
+                      font-black
+                      uppercase
+                      text-[#9b6b3d]
+                    "
+                  >
+                    {category.skills.length} Skills
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {category.skills.map((skill) => (
+                    <motion.div
+                      key={skill.name}
+                      whileHover={{
+                        scale: 1.03,
+                        y: -3,
+                      }}
+                      className="
+                    group
+                    grid grid-cols-2
+                    justify-center items-center
+                    relative
+                    border-2
+                    border-[#4f321f]
+                    bg-[#332016]
+                    p-4
+                    shadow-[3px_3px_0_#1c1009]
+                    transition-all
+                    duration-150
+                    hover:border-[#8b5e34]
+                    hover:bg-[#3a2417]
+                  "
+                    >
+
+                      <div
+                        className="
+                          mb-3
+                          flex
+                          h-10
+                          w-10
+                          items-center
+                          justify-center
+                          border
+                          border-[#5c3b24]
+                          bg-[#24150d]
+                          text-[#9b6b3d]
+                          transition-colors
+                          group-hover:border-[#d49a55]
+                          group-hover:text-[#d49a55]
+                        "
+                      >
+                        {skill.icon}
+                      </div>
+
+                      <p
+                        className="
+                          font-mono
+                          text-md
+                          font-black
+                          uppercase
+                          text-[#cdb88b]
+                          transition-colors
+                          group-hover:text-[#ffe8ad]
+                        "
+                      >
+                        {skill.name}
+                      </p>
+
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
