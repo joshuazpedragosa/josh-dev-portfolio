@@ -10,11 +10,9 @@ function getInitialTheme(): Theme {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === "light" || saved === "dark") return saved;
   } catch {
-    // storage unavailable — fall back to the OS preference
+    // storage unavailable — fall back to the default
   }
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return "dark";
 }
 
 export function useTheme() {
