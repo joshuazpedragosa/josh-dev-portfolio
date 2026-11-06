@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
+import SectionHeading from "./SectionHeading";
+import Window from "./Window";
 import dcyImg from "./../../public/projects/Screenshot 2026-03-26 110703.png";
 import CVFImg from "./../../public/projects/cvf.png";
 import LogisticImg from "./../../public/projects/logistic.png";
@@ -97,357 +99,110 @@ const projects = [
   },
 ];
 
+const tagColors = [
+  "text-syn-string",
+  "text-syn-fn",
+  "text-syn-green",
+  "text-syn-var",
+  "text-syn-keyword",
+];
+
+const slug = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/\(.*?\)/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="relative overflow-hidden bg-[#24150d] px-6 py-32 text-[#f6d78b]"
-    >
-      <div
-        className="
-      pointer-events-none
-      absolute
-      right-0
-      top-1/2
-      h-[500px]
-      w-[500px]
-      -translate-y-1/2
-      rounded-full
-      bg-[#a66a32]/10
-      blur-[150px]
-    "
-      />
+    <section id="projects" className="section">
+      <div className="relative mx-auto max-w-7xl">
+        <SectionHeading
+         
+          command="git log --projects"
+          title="Featured Projects"
+          center
+        />
 
-      <div
-        className="
-      pointer-events-none
-      absolute
-      bottom-0
-      left-0
-      h-[300px]
-      w-[300px]
-      rounded-full
-      bg-[#6b4728]/10
-      blur-[100px]
-    "
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-        linear-gradient(#d49a55 1px, transparent 1px),
-        linear-gradient(90deg, #d49a55 1px, transparent 1px)
-      `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="text-center"
-        >
-
-          <h2
-            className="
-          font-mono
-          text-4xl
-          font-black
-          uppercase
-          tracking-wide
-          text-[#ffe8ad]
-          drop-shadow-[4px_4px_0_#3b2415]
-          md:text-6xl
-        "
-          >
-            Featured Projects
-          </h2>
-        </motion.div>
-
-        <div className="mt-20 grid gap-8 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 md:mt-16 md:gap-8 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{
-                opacity: 0,
-                y: 80,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.15,
-              }}
-              whileHover={{
-                y: -8,
-              }}
-              className="
-            group
-            relative
-            border-4
-            border-[#6b4728]
-            bg-[#2e1c13]
-            p-2
-            shadow-[8px_8px_0_#160c07]
-          "
+              initial={{ opacity: 0, y: 80, rotate: index % 2 ? 2 : -2 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: (index % 3) * 0.12 }}
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <span
-                className="
-              absolute
-              left-0
-              top-0
-              h-2
-              w-16
-              bg-[#d49a55]
-            "
-              />
-
-              <span
-                className="
-              absolute
-              right-0
-              top-0
-              h-2
-              w-16
-              bg-[#d49a55]
-            "
-              />
-
-              <span
-                className="
-              absolute
-              bottom-0
-              left-0
-              h-2
-              w-16
-              bg-[#d49a55]
-            "
-              />
-
-              <span
-                className="
-              absolute
-              bottom-0
-              right-0
-              h-2
-              w-16
-              bg-[#d49a55]
-            "
-              />
-
-              <div
-                className="
-              overflow-hidden
-              border-2
-              border-[#4f321f]
-              bg-[#24150d]
-            "
+              <Window
+                title={`~/projects/${slug(project.title)}`}
+                className="window-hover flex h-full flex-col"
+                bodyClassName="flex flex-1 flex-col"
               >
-                {/* =========================
-                QUEST IMAGE
-            ========================== */}
-
-                <div
-                  className="
-                relative
-                h-56
-                overflow-hidden
-                border-b-2
-                border-[#4f321f]
-                bg-[#160c07]
-              "
-                >
+                <div className="relative h-48 overflow-hidden border-b border-card-line bg-card-2 sm:h-52">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="
-                  h-full
-                  w-full
-                  object-cover
-                  opacity-80
-                  grayscale-[15%]
-                  transition-all
-                  duration-500
-                  group-hover:scale-105
-                  group-hover:opacity-100
-                "
+                    loading="lazy"
+                    className="h-full w-full object-cover opacity-85 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100"
                   />
-
-                  <div
-                    className="
-                  absolute
-                  inset-0
-                  bg-gradient-to-t
-                  from-[#24150d]
-                  via-[#24150d]/20
-                  to-transparent
-                "
-                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent" />
+                  <span className="absolute bottom-3 left-4 rounded-md border border-card-line bg-card/80 px-2 py-0.5 font-mono text-[10px] text-card-accent backdrop-blur">
+                    #{String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="text-lg font-bold leading-snug text-card-ink transition-colors group-hover:text-card-accent sm:text-xl">
+                    {project.title}
+                  </h3>
 
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3
-                        className="
-                      mt-1
-                      font-mono
-                      text-xl
-                      font-black
-                      uppercase
-                      leading-tight
-                      text-[#f6d78b]
-                      transition-colors
-                      group-hover:text-[#ffe8ad]
-                    "
+                  <p className="mt-3 text-sm leading-7 text-card-muted">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={tech}
+                        className={`tag ${tagColors[i % tagColors.length]}`}
                       >
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div
-                    className="
-                  mt-5
-                  border-l-2
-                  border-[#6b4728]
-                  pl-4
-                "
-                  >
-                    <p
-                      className="
-                    font-mono
-                    text-xs
-                    leading-7
-                    text-[#9f8665]
-                  "
-                    >
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="
-                        border
-                        border-[#5c3b24]
-                        bg-[#332016]
-                        px-2.5
-                        py-1.5
-                        font-mono
-                        text-[9px]
-                        font-bold
-                        uppercase
-                        text-[#cdb88b]
-                        transition-colors
-                        group-hover:border-[#8b5e34]
-                        group-hover:text-[#d49a55]
-                      "
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                        {tech}
+                      </span>
+                    ))}
                   </div>
 
                   {project.demo_available && (
-                    <div
-                      className="
-                    mt-7
-                    flex
-                    gap-3
-                    border-t-2
-                    border-[#4f321f]
-                    pt-5
-                  "
-                    >
-                      <a
+                    <div className="mt-auto flex gap-3 border-t border-card-line pt-5">
+                      <motion.a
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="
-                      group/button
-                      flex
-                      flex-1
-                      items-center
-                      justify-center
-                      gap-2
-                      border-2
-                      border-[#5c3b24]
-                      bg-[#332016]
-                      px-4
-                      py-3
-                      font-mono
-                      text-[9px]
-                      font-black
-                      uppercase
-                      tracking-widest
-                      text-[#cdb88b]
-                      shadow-[3px_3px_0_#1c1009]
-                      transition-all
-                      hover:-translate-y-1
-                      hover:border-[#d49a55]
-                      hover:text-[#ffe8ad]
-                    "
+                        whileHover={{ y: -3 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="btn-card flex-1"
                       >
                         <FiGithub />
                         Source
-                      </a>
+                      </motion.a>
 
-                      <a
+                      <motion.a
                         href={project.demo}
                         target="_blank"
                         rel="noreferrer"
-                        className="
-                      flex
-                      flex-1
-                      items-center
-                      justify-center
-                      gap-2
-                      border-2
-                      border-[#d49a55]
-                      bg-[#8b5e34]
-                      px-4
-                      py-3
-                      font-mono
-                      text-[9px]
-                      font-black
-                      uppercase
-                      tracking-widest
-                      text-[#fff1bd]
-                      shadow-[3px_3px_0_#1c1009]
-                      transition-all
-                      hover:-translate-y-1
-                      hover:bg-[#a66a32]
-                    "
+                        whileHover={{ y: -3 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="btn-primary flex-1 px-4 py-2.5 text-xs"
                       >
                         <FiExternalLink />
                         Visit
-                      </a>
+                      </motion.a>
                     </div>
                   )}
                 </div>
-              </div>
+              </Window>
             </motion.div>
           ))}
         </div>

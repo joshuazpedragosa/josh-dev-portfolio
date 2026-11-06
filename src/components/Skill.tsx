@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
+import Window from "./Window";
 import {
   FiCode,
   FiServer,
@@ -141,279 +143,111 @@ const skillCategories = [
   },
 ];
 
+const fileNames: Record<string, string> = {
+  Frontend: "frontend",
+  Backend: "backend",
+  Database: "database",
+  "DevOps & Cloud": "devops",
+  "AI & Automation": "ai",
+};
+
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="relative overflow-hidden bg-[#24150d] px-6 py-32 text-[#f6d78b]"
-    >
-      <div
-        className="
-    pointer-events-none
-    absolute
-    left-0
-    top-1/2
-    h-[500px]
-    w-[500px]
-    -translate-y-1/2
-    rounded-full
-    bg-[#a66a32]/10
-    blur-[140px]
-  "
-      />
+    <section id="skills" className="section">
+      <div className="relative mx-auto max-w-7xl">
+        <SectionHeading
+         
+          command="ls ./skills"
+          title="Skills & Technologies"
+          center
+        />
 
-      <div
-        className="
-    pointer-events-none
-    absolute
-    right-0
-    top-20
-    h-[300px]
-    w-[300px]
-    rounded-full
-    bg-[#6b4728]/10
-    blur-[100px]
-  "
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-        linear-gradient(#d49a55 1px, transparent 1px),
-        linear-gradient(90deg, #d49a55 1px, transparent 1px)
-      `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="text-center"
-        >
-
-          <h2
-            className="
-        font-mono
-        text-4xl
-        font-black
-        uppercase
-        leading-tight
-        tracking-wide
-        text-[#ffe8ad]
-        drop-shadow-[4px_4px_0_#3b2415]
-        md:text-6xl
-      "
-          >
-            Skills & Technologies
-          </h2>
-        </motion.div>
-
-        <div className="mt-20 grid gap-8 md:grid-cols-2">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: categoryIndex * 0.15,
-              }}
-              whileHover={{
-                y: -6,
-              }}
-              className="
-            relative
-            border-4
-            border-[#6b4728]
-            bg-[#2e1c13]
-            p-2
-            shadow-[8px_8px_0_#160c07]
-          "
-            >
-
-              <span
-                className="
-            absolute
-            left-0
-            top-0
-            h-2
-            w-16
-            bg-[#d49a55]"
-              />
-
-              <span
-                className="
-            absolute
-            right-0
-            bottom-0
-            h-2
-            w-16
-            bg-[#d49a55]
-          "
-              />
-
-              <div
-                className="
-            border-2
-            border-[#4f321f]
-            bg-[#24150d]
-            p-6
-            md:p-8
-          "
+        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
+          {skillCategories.map((category, categoryIndex) => {
+            const file = fileNames[category.title] ?? "skills";
+            return (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: (categoryIndex % 2) * 0.15 }}
+                whileHover={{ y: -6 }}
+                className={
+                  // Let the last card span both columns when the count is odd
+                  categoryIndex === skillCategories.length - 1 &&
+                  skillCategories.length % 2 === 1
+                    ? "md:col-span-2"
+                    : ""
+                }
               >
-
-                <div
-                  className="
-              mb-8
-              flex
-              items-center
-              justify-between
-              border-b-2
-              border-[#4f321f]
-              pb-6
-            "
+                <Window
+                  title={`${file}.config.ts`}
+                  className="window-hover h-full"
+                  right={
+                    <span className="rounded border border-card-line px-2 py-0.5 font-mono text-[10px] text-card-muted">
+                      {category.skills.length} items
+                    </span>
+                  }
+                  bodyClassName="p-4 sm:p-6"
                 >
-                  <div className="flex items-center gap-4">
-
-                    <div
-                      className="
-                  flex
-                  h-14
-                  w-14
-                  items-center
-                  justify-center
-                  border-2
-                  border-[#8b5e34]
-                  bg-[#332016]
-                  text-[#d49a55]
-                  shadow-[3px_3px_0_#1c1009]
-                "
-                    >
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-card-line bg-card-2 text-card-accent">
                       {category.icon}
                     </div>
-
-                    <div>
-                      <h3
-                        className="
-                    mt-1
-                    font-mono
-                    text-xl
-                    font-black
-                    uppercase
-                    tracking-wider
-                    text-[#f6d78b]
-                    md:text-2xl
-                  "
-                      >
+                    <div className="min-w-0">
+                      <h3 className="text-xl font-bold text-card-ink sm:text-2xl">
                         {category.title}
                       </h3>
+                      <p className="truncate font-mono text-[11px] sm:text-xs">
+                        <span className="text-syn-keyword">export const</span>{" "}
+                        <span className="text-syn-var">{file}</span>{" "}
+                        <span className="text-card-muted">= [</span>
+                      </p>
                     </div>
                   </div>
 
-                  <div
-                    className="
-                      border-2
-                      border-[#5c3b24]
-                      bg-[#332016]
-                      px-3
-                      py-2
-                      font-mono
-                      text-[9px]
-                      font-black
-                      uppercase
-                      text-[#9b6b3d]
-                    "
+                  <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={{
+                      hidden: {},
+                      show: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
+                    }}
+                    className={`grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 ${
+                      categoryIndex === skillCategories.length - 1 &&
+                      skillCategories.length % 2 === 1
+                        ? "lg:grid-cols-4"
+                        : ""
+                    }`}
                   >
-                    {category.skills.length} Skills
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {category.skills.map((skill) => (
-                    <motion.div
-                      key={skill.name}
-                      whileHover={{
-                        scale: 1.03,
-                        y: -3,
-                      }}
-                      className="
-                    group
-                    grid grid-cols-2
-                    justify-center items-center
-                    relative
-                    border-2
-                    border-[#4f321f]
-                    bg-[#332016]
-                    p-4
-                    shadow-[3px_3px_0_#1c1009]
-                    transition-all
-                    duration-150
-                    hover:border-[#8b5e34]
-                    hover:bg-[#3a2417]
-                  "
-                    >
-
-                      <div
-                        className="
-                          mb-3
-                          flex
-                          h-10
-                          w-10
-                          items-center
-                          justify-center
-                          border
-                          border-[#5c3b24]
-                          bg-[#24150d]
-                          text-[#9b6b3d]
-                          transition-colors
-                          group-hover:border-[#d49a55]
-                          group-hover:text-[#d49a55]
-                        "
+                    {category.skills.map((skill) => (
+                      <motion.div
+                        key={skill.name}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0.85 },
+                          show: { opacity: 1, scale: 1 },
+                        }}
+                        whileHover={{ scale: 1.03, y: -3 }}
+                        className="group flex items-center gap-3 rounded-lg border border-card-line bg-card-2 p-3 transition-colors duration-150 hover:border-card-accent/70 hover:bg-card-3"
                       >
-                        {skill.icon}
-                      </div>
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-card text-card-muted transition-all duration-300 group-hover:-rotate-6 group-hover:text-card-accent [&_svg]:h-6 [&_svg]:w-6">
+                          {skill.icon}
+                        </div>
+                        <p className="font-mono text-xs text-card-body transition-colors group-hover:text-card-ink sm:text-sm">
+                          <span className="text-syn-string">"{skill.name}"</span>
+                          <span className="text-card-muted">,</span>
+                        </p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
 
-                      <p
-                        className="
-                          font-mono
-                          text-md
-                          font-black
-                          uppercase
-                          text-[#cdb88b]
-                          transition-colors
-                          group-hover:text-[#ffe8ad]
-                        "
-                      >
-                        {skill.name}
-                      </p>
-
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                  <p className="mt-4 font-mono text-xs text-card-muted">];</p>
+                </Window>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

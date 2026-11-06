@@ -1,34 +1,203 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
 
-.body {
-  overflow: auto;
-  scrollbar-width: none; /* Firefox */
+/* =========================
+   THEME TOKENS
+   Light is the base; .dark on <html> swaps the page palette.
+   Cards are editor windows and stay dark in both modes.
+========================== */
+:root {
+  /* Page */
+  --page: #f3f5f9;
+  --heading: #0b1220;
+  --ink: #1e293b;
+  --body: #334155;
+  --muted: #64748b;
+  --line: #dbe1ea;
+  --accent: #c2410c;
+  --accent-soft: #ea580c;
+  --glow: #fb923c;
+
+  /* Cards — dark editor palette (same in both modes) */
+  --card: #0d1117;
+  --card-2: #161b22;
+  --card-3: #1f2630;
+  --card-line: #30363d;
+  --card-ink: #e6edf3;
+  --card-body: #c9d1d9;
+  --card-muted: #8b949e;
+  --card-accent: #fb923c;
+  --card-shadow: 0 24px 48px -24px rgb(15 23 42 / 0.55);
+
+  /* Syntax colours used inside cards */
+  --syn-keyword: #ff7b72;
+  --syn-string: #a5d6ff;
+  --syn-fn: #d2a8ff;
+  --syn-var: #79c0ff;
+  --syn-green: #7ee787;
+
+  /* Buttons — orange palette */
+  --btn: #ea580c;
+  --btn-hover: #c2410c;
+  --btn-border: #9a3412;
+  --btn-ink: #ffffff;
+
+  color-scheme: light;
 }
 
-/* Chrome, Safari and Edge */
-.body::-webkit-scrollbar {
-  display: none;
+.dark {
+  --page: #05070b;
+  --heading: #f0f6fc;
+  --ink: #e6edf3;
+  --body: #c9d1d9;
+  --muted: #8b949e;
+  --line: #1b222c;
+  --accent: #fb923c;
+  --accent-soft: #fdba74;
+  --glow: #f97316;
+
+  --card-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.8);
+
+  --btn: #f97316;
+  --btn-hover: #fb923c;
+  --btn-border: #fdba74;
+  --btn-ink: #1a0a02;
+
+  color-scheme: dark;
 }
 
-.main {
-    @apply
-    h-screen w-screen  text-gray-300
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-page: var(--page);
+  --color-heading: var(--heading);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-glow: var(--glow);
+
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-card-3: var(--card-3);
+  --color-card-line: var(--card-line);
+  --color-card-ink: var(--card-ink);
+  --color-card-body: var(--card-body);
+  --color-card-muted: var(--card-muted);
+  --color-card-accent: var(--card-accent);
+
+  --color-syn-keyword: var(--syn-keyword);
+  --color-syn-string: var(--syn-string);
+  --color-syn-fn: var(--syn-fn);
+  --color-syn-var: var(--syn-var);
+  --color-syn-green: var(--syn-green);
+
+  --color-btn: var(--btn);
+  --color-btn-hover: var(--btn-hover);
+  --color-btn-border: var(--btn-border);
+  --color-btn-ink: var(--btn-ink);
+
+  --animate-blink: blink 1s steps(1) infinite;
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes drift {
+    from {
+      transform: translate3d(-6%, -4%, 0) scale(1);
+    }
+    to {
+      transform: translate3d(6%, 5%, 0) scale(1.15);
+    }
+  }
 }
 
-.headers {
-    @apply
-    hover:text-blue-300 duration-200 font-semibold
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
-.btn {
-    @apply
-    bg-blue-300 text-gray-800 uppercase px-4 py-2 
-    font-semibold rounded cursor-pointer ease-linear
-    hover:bg-blue-400 duration-150 active:bg-blue-300
+body {
+  @apply bg-page font-sans text-ink antialiased;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
-.services-label {
-  @apply
-  text-white flex gap-2
+/* Smooth palette swap when toggling the theme */
+.theme-transition,
+.theme-transition * {
+  transition-property: background-color, border-color, color, fill, box-shadow !important;
+  transition-duration: 0.4s !important;
+  transition-timing-function: ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: var(--btn);
+  color: var(--btn-ink);
+}
+
+/* =========================
+   SHARED COMPONENTS
+========================== */
+@layer components {
+  .section {
+    @apply relative px-4 py-20 text-ink sm:px-6 md:py-28;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+
+  /* Editor-window card */
+  .window {
+    @apply relative overflow-hidden rounded-xl border border-card-line bg-card text-card-body shadow-(--card-shadow) transition-[border-color,box-shadow] duration-300;
+  }
+
+  .window-hover {
+    @apply hover:border-card-accent/60 hover:shadow-[0_24px_60px_-24px_rgb(249_115_22/0.45)];
+  }
+
+  .window-bar {
+    @apply flex items-center gap-3 border-b border-card-line bg-card-2 px-4 py-2.5;
+  }
+
+  .tag {
+    @apply rounded-md border border-card-line bg-card-2 px-2 py-1 font-mono text-[11px] font-medium;
+  }
+
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-lg border border-btn-border/40 bg-btn px-6 py-3 font-mono text-sm font-bold text-btn-ink shadow-[0_10px_30px_-10px_var(--btn)] transition-[background-color,box-shadow] duration-200 hover:bg-btn-hover hover:shadow-[0_14px_36px_-8px_var(--btn)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-btn;
+  }
+
+  .btn-secondary {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-lg border border-btn bg-transparent px-6 py-3 font-mono text-sm font-bold text-accent transition-[background-color,color] duration-200 hover:bg-btn hover:text-btn-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-btn;
+  }
+
+  /* Secondary button that sits on a dark card */
+  .btn-card {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-card-line bg-card-2 px-4 py-2.5 font-mono text-xs font-bold text-card-ink transition-colors duration-200 hover:border-card-accent hover:text-card-accent;
+  }
+
+  .btn-icon {
+    @apply flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-line bg-page/60 text-accent backdrop-blur transition-[background-color,color,border-color] duration-200 hover:border-btn hover:bg-btn hover:text-btn-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-btn;
+  }
 }

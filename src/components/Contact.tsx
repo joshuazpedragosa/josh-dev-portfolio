@@ -1,468 +1,153 @@
 import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiSend } from "react-icons/fi";
+import SectionHeading from "./SectionHeading";
+import Window from "./Window";
+
+const details = [
+  {
+    key: "email",
+    label: "Contact Address",
+    value: "jz.pedragosa@gmail.com",
+    href: "mailto:jz.pedragosa@gmail.com",
+    icon: <FiMail size={18} />,
+  },
+  {
+    key: "location",
+    label: "Current Location",
+    value: "Oriental Mindoro, Philippines",
+    icon: <FiMapPin size={18} />,
+  },
+];
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="
-    relative
-    overflow-hidden
-    bg-[#24150d]
-    px-6
-    py-32
-    text-[#f6d78b]
-  "
-    >
-      <div
-        className="
-      pointer-events-none
-      absolute
-      left-1/2
-      top-0
-      h-[700px]
-      w-[700px]
-      -translate-x-1/2
-      rounded-full
-      bg-[#a66a32]/10
-      blur-[150px]
-    "
-      />
+    <section id="contact" className="section">
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <SectionHeading command="./contact.sh" title="Get In Touch" />
 
-      <div
-        className="
-      pointer-events-none
-      absolute
-      bottom-0
-      right-0
-      h-[300px]
-      w-[300px]
-      rounded-full
-      bg-[#6b4728]/10
-      blur-[100px]
-    "
-      />
-
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `
-        linear-gradient(#d49a55 1px, transparent 1px),
-        linear-gradient(90deg, #d49a55 1px, transparent 1px)
-      `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 80,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.7,
-        }}
-        className="
-      relative
-      z-10
-      mx-auto
-      max-w-6xl
-      border-4
-      border-[#6b4728]
-      bg-[#2e1c13]
-      p-2
-      shadow-[10px_10px_0_#160c07]
-    "
-      >
-
-        <span
-          className="
-        absolute
-        left-0
-        top-0
-        h-2
-        w-24
-        bg-[#d49a55]
-      "
-        />
-
-        <span
-          className="
-        absolute
-        right-0
-        top-0
-        h-2
-        w-24
-        bg-[#d49a55]
-      "
-        />
-
-        <span
-          className="
-        absolute
-        bottom-0
-        left-0
-        h-2
-        w-24
-        bg-[#d49a55]
-      "
-        />
-
-        <span
-          className="
-        absolute
-        bottom-0
-        right-0
-        h-2
-        w-24
-        bg-[#d49a55]
-      "
-        />
-
-        <div
-          className="
-        overflow-hidden
-        border-2
-        border-[#4f321f]
-        bg-[#24150d]
-      "
-        >
-
-          <div className="grid lg:grid-cols-2">
-
-            <div className="p-8 lg:p-14">
-
-              <h2
-                className="
-              font-mono
-              text-3xl
-              font-black
-              uppercase
-              leading-tight
-              text-[#ffe8ad]
-              drop-shadow-[4px_4px_0_#3b2415]
-              md:text-5xl
-            "
-              >
-                Have a project in
-                <br />
-                <span className="text-[#d49a55]">Mind?</span>
-              </h2>
-
-              <p
-                className="
-              mt-6
-              max-w-xl
-              font-mono
-              text-sm
-              leading-8
-              text-[#9f8665]
-            "
-              >
-                Whether you need a modern web application, API integrations, or
-                a full-stack solution, send me your quest and let's build
-                something useful together.
-              </p>
-
-
-              <div className="mt-10 space-y-5">
-                <div
-                  className="
-                flex
-                items-center
-                gap-4
-                border-2
-                border-[#4f321f]
-                bg-[#2e1c13]
-                p-4
-                shadow-[4px_4px_0_#1c1009]
-              "
-                >
-                  <div
-                    className="
-                  flex
-                  h-12
-                  w-12
-                  shrink-0
-                  items-center
-                  justify-center
-                  border-2
-                  border-[#6b4728]
-                  bg-[#332016]
-                "
-                  >
-                    <FiMail className="text-xl text-[#d49a55]" />
-                  </div>
-
-                  <div>
-                    <p
-                      className="
-                    font-mono
-                    text-[8px]
-                    font-black
-                    uppercase
-                    tracking-[0.2em]
-                    text-[#6f4b2d]
-                  "
-                    >
-                      Contact Address
-                    </p>
-
-                    <p
-                      className="
-                    mt-1
-                    font-mono
-                    text-sm
-                    font-bold
-                    text-[#cdb88b]
-                  "
-                    >
-                      jz.pedragosa@gmail.com
-                    </p>
-                  </div>
-                </div>
-
-                {/* Location */}
-
-                <div
-                  className="
-                flex
-                items-center
-                gap-4
-                border-2
-                border-[#4f321f]
-                bg-[#2e1c13]
-                p-4
-                shadow-[4px_4px_0_#1c1009]
-              "
-                >
-                  <div
-                    className="
-                  flex
-                  h-12
-                  w-12
-                  shrink-0
-                  items-center
-                  justify-center
-                  border-2
-                  border-[#6b4728]
-                  bg-[#332016]
-                "
-                  >
-                    <FiMapPin className="text-xl text-[#d49a55]" />
-                  </div>
-
-                  <div>
-                    <p
-                      className="
-                    font-mono
-                    text-[8px]
-                    font-black
-                    uppercase
-                    tracking-[0.2em]
-                    text-[#6f4b2d]
-                  "
-                    >
-                      Current Location
-                    </p>
-
-                    <p
-                      className="
-                    mt-1
-                    font-mono
-                    text-sm
-                    font-bold
-                    text-[#cdb88b]
-                  "
-                    >
-                      Oriental Mindoro, Philippines
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="
-            flex
-            items-center
-            justify-center
-            border-t-2
-            border-[#4f321f]
-            bg-[#2e1c13]
-            p-8
-            lg:border-l-2
-            lg:border-t-0
-            lg:p-14
-          "
+            <motion.h3
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-8 text-2xl font-bold text-heading sm:text-3xl"
             >
-              <motion.a
-                href="mailto:jz.pedragosa@gmail.com"
-                whileHover={{
-                  y: -6,
-                  boxShadow: "8px 8px 0 #160c07",
-                }}
-                whileTap={{
-                  scale: 0.98,
-                }}
-                className="
-              group
-              relative
-              w-full
-              border-4
-              border-[#d49a55]
-              bg-[#8b5e34]
-              p-8
-              text-center
-              shadow-[6px_6px_0_#1c1009]
-              transition-all
-              md:p-10
-            "
-              >
+              Have a project in <span className="text-accent">mind?</span>
+            </motion.h3>
 
-                <span
-                  className="
-                absolute
-                left-0
-                top-0
-                h-2
-                w-16
-                bg-[#ffe8ad]
-              "
-                />
+            <motion.p
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-4 max-w-xl text-base leading-8 text-body"
+            >
+              Whether you need a modern web application, API integrations, or a
+              full-stack solution, send me your quest and let's build something
+              useful together.
+            </motion.p>
 
-                <span
-                  className="
-                absolute
-                right-0
-                top-0
-                h-2
-                w-16
-                bg-[#ffe8ad]
-              "
-                />
-
-                <span
-                  className="
-                absolute
-                bottom-0
-                left-0
-                h-2
-                w-16
-                bg-[#ffe8ad]
-              "
-                />
-
-                <span
-                  className="
-                absolute
-                bottom-0
-                right-0
-                h-2
-                w-16
-                bg-[#ffe8ad]
-              "
-                />
-
-                <div className="flex justify-center">
-                  <div
-                    className="
-                  flex
-                  h-20
-                  w-20
-                  items-center
-                  justify-center
-                  border-4
-                  border-[#ffe8ad]
-                  bg-[#6b4728]
-                  shadow-[4px_4px_0_#1c1009]
-                "
-                  >
-                    <FiSend
-                      size={34}
-                      className="
-                    text-[#fff1bd]
-                    transition-transform
-                    duration-200
-                    group-hover:translate-x-1
-                    group-hover:-translate-y-1
-                  "
-                    />
+            <div className="mt-8 space-y-4">
+              {details.map((d, i) => (
+                <motion.div
+                  key={d.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.12 }}
+                  whileHover={{ x: 6 }}
+                  className="window window-hover group flex items-center gap-4 p-4"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-card-line bg-card-2 text-card-accent transition-colors group-hover:border-btn group-hover:bg-btn group-hover:text-white">
+                    {d.icon}
                   </div>
-                </div>
-
-                <h3
-                  className="
-                mt-3
-                font-mono
-                text-2xl
-                font-black
-                uppercase
-                leading-tight
-                text-[#fff1bd]
-                md:text-3xl
-              "
-                >
-                  Start a
-                  <br />
-                  Conversation
-                </h3>
-
-                <p
-                  className="
-                mx-auto
-                mt-4
-                max-w-sm
-                font-mono
-                text-xs
-                leading-6
-                text-[#f6d78b]
-              "
-                >
-                  Send your project details and let's discuss how we can turn
-                  your idea into reality.
-                </p>
-
-                {/* Button */}
-
-                <div
-                  className="
-                mt-8
-                inline-flex
-                items-center
-                gap-3
-                border-2
-                border-[#ffe8ad]
-                bg-[#6b4728]
-                px-7
-                py-4
-                font-mono
-                text-[10px]
-                font-black
-                uppercase
-                tracking-widest
-                text-[#fff1bd]
-                shadow-[4px_4px_0_#1c1009]
-                transition-all
-                group-hover:-translate-y-1
-                group-hover:bg-[#a66a32]
-              "
-                >
-                  Say hello
-                  <FiSend />
-                </div>
-              </motion.a>
+                  <div className="min-w-0">
+                    <p className="font-mono text-[11px] text-card-muted">
+                      <span className="text-syn-green">{"// "}</span>
+                      {d.label}
+                    </p>
+                    {d.href ? (
+                      <a
+                        href={d.href}
+                        className="mt-0.5 block break-words font-mono text-sm text-card-ink hover:text-card-accent"
+                      >
+                        {d.value}
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 break-words font-mono text-sm text-card-ink">
+                        {d.value}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <Window
+              title="bash — contact.sh"
+              className="window-hover"
+              bodyClassName="p-5 font-mono text-[13px] leading-7 sm:p-7 sm:text-sm"
+            >
+              <p className="text-card-ink">
+                <span className="text-syn-green">➜</span>{" "}
+                <span className="text-syn-var">~</span> ./contact.sh --new
+              </p>
+              <p className="text-card-muted">Initializing conversation...</p>
+              <p className="mt-3">
+                <span className="text-syn-keyword">const</span>{" "}
+                <span className="text-syn-var">message</span>{" "}
+                <span className="text-card-muted">=</span>{" "}
+                <span className="text-card-muted">{"{"}</span>
+              </p>
+              <p className="pl-5">
+                <span className="text-syn-fn">to</span>
+                <span className="text-card-muted">:</span>{" "}
+                <span className="break-all text-syn-string">
+                  "jz.pedragosa@gmail.com"
+                </span>
+                <span className="text-card-muted">,</span>
+              </p>
+              <p className="pl-5">
+                <span className="text-syn-fn">subject</span>
+                <span className="text-card-muted">:</span>{" "}
+                <span className="text-syn-string">"Start a Conversation"</span>
+                <span className="text-card-muted">,</span>
+              </p>
+              <p className="pl-5 text-card-muted">
+                <span className="text-syn-green">{"// "}</span>
+                Send your project details and let's discuss how we can turn
+                your idea into reality.
+              </p>
+              <p className="text-card-muted">{"};"}</p>
+
+              <motion.a
+                href="mailto:jz.pedragosa@gmail.com"
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-primary group mt-6 w-full py-4 text-base"
+              >
+                Say hello
+                <FiSend className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:rotate-12" />
+              </motion.a>
+
+              <p className="mt-4 text-card-ink">
+                <span className="text-syn-green">➜</span>{" "}
+                <span className="text-syn-var">~</span>{" "}
+                <span className="inline-block h-4 w-2 translate-y-0.5 animate-blink bg-card-accent" />
+              </p>
+            </Window>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
