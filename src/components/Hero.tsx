@@ -5,9 +5,9 @@ import {
   FiChevronDown,
   FiDownload,
   FiFacebook,
-  FiGithub,
   FiLinkedin,
 } from "react-icons/fi";
+import { SiTiktok } from "react-icons/si";
 
 import myImg from "./../assets/jzp.png";
 import Window from "./Window";
@@ -23,9 +23,9 @@ const roles = [
 
 const socials = [
   {
-    label: "GitHub",
-    icon: <FiGithub size={18} />,
-    href: "https://github.com/joshuazpedragosa",
+    label: "TikTok",
+    icon: <SiTiktok size={18} />,
+    href: "https://www.tiktok.com/@joshd3v2?_r=1",
   },
   {
     label: "LinkedIn",
@@ -35,7 +35,7 @@ const socials = [
   {
     label: "Facebook",
     icon: <FiFacebook size={18} />,
-    href: "https://www.facebook.com/joshua.pedragosa.71",
+    href: "https://www.facebook.com/profile.php?id=61596349828234",
   },
 ];
 

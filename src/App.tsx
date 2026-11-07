@@ -8,23 +8,24 @@ import Contact from "./components/Contact";
 import ScrollProgress from "./components/ScrollProgress";
 import BackToTop from "./components/BackToTop";
 import CodeBackground from "./components/CodeBackground";
-import { FiFacebook, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiFacebook, FiLinkedin } from "react-icons/fi";
+import { SiTiktok } from "react-icons/si";
 
 const socials = [
   {
-    label: "GitHub",
-    icon: <FiGithub size={16} />,
-    href: "https://github.com/joshuazpedragosa",
+    label: "TikTok",
+    icon: <SiTiktok size={18} />,
+    href: "https://www.tiktok.com/@joshd3v2?_r=1",
   },
   {
     label: "LinkedIn",
-    icon: <FiLinkedin size={16} />,
+    icon: <FiLinkedin size={18} />,
     href: "https://www.linkedin.com/in/joshua-pedragosa-83601b339/",
   },
   {
     label: "Facebook",
-    icon: <FiFacebook size={16} />,
-    href: "https://www.facebook.com/joshua.pedragosa.71",
+    icon: <FiFacebook size={18} />,
+    href: "https://www.facebook.com/profile.php?id=61596349828234",
   },
 ];
 
